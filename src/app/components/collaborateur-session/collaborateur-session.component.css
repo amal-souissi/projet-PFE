@@ -1,0 +1,8 @@
+.example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+  }
+  .detail {
+    display: inline-block;
+    margin-bottom: 5px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+   }

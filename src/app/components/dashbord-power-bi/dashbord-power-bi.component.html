@@ -1,0 +1,68 @@
+<mat-toolbar>
+    <img src="/assets/img/oddo.ico" />
+    <span class="example-spacer" style="font-size:25px;color:white;">{{ 'toolbar.title' | translate }}</span>
+    <label routerLink="/dashbord" class="label" style="font-size:20px;color:white;font-family: Helvetica, Arial, sans-serif;" > {{ 'button.dashbord' | translate }}</label>
+
+    <label routerLink="/collaborateur-list" class="label" style="font-size:20px;color:white;font-family: Helvetica, Arial, sans-serif;" > {{ 'button.employee' | translate }}</label>
+    <label mat-button [matMenuTriggerFor]="afterMenu"  class="label" style="font-size:20px;color:white;font-family: Helvetica, Arial, sans-serif;" >{{ 'button.internal_training' | translate }}</label>
+    <mat-menu #afterMenu="matMenu" xPosition="after">
+    <button mat-menu-item routerLink="/formation-list" style="font-family: Helvetica, Arial, sans-serif;" >{{ 'button.create_training' | translate }}</button>
+    <button mat-menu-item routerLink="/sessionformation-list">{{ 'button.create_training_session' | translate }}</button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="languageMenu" aria-label="Language">
+      <mat-icon>language</mat-icon>    </button>
+    <mat-menu #languageMenu="matMenu" xPosition="before">
+    <button mat-menu-item (click)="switchLanguage('fr')">{{ 'toolbar.fr' | translate }}</button>
+    <button mat-menu-item (click)="switchLanguage('en')">{{ 'toolbar.en' | translate }}</button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" >
+    <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+    <mat-icon (click)="logout()"  class="logout" >settings_power</mat-icon>
+    <span  class="logout">{{ 'toolbar.logout' | translate }}</span>
+    </button>
+    </mat-menu>
+    </mat-toolbar>
+
+   
+
+
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Dashboard Power BI</title>
+      <style>
+             body {
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+                 height: 100vh; /* Hauteur de la fenêtre */
+                 margin: 100;
+                 background-color: #ffffff;
+             }
+             .dashboard-container {
+                 width: 100%; /* Ajuste la largeur selon tes besoins */
+                 height: 100%; /* Ajuste la hauteur selon tes besoins */
+                 background-color: white;
+                 box-shadow: 5 4px 8px rgba(0, 0, 0, 0.1);
+                 padding: 20px; /* Ajuste les marges internes selon tes besoins */
+             }
+             iframe {
+                 width: 99%;
+                 height: 99%;
+                 border: none;
+             }
+      </style>
+      </head>
+      <body>
+      <div class="dashboard-container">
+        <iframe title="DachbordPowerBIV0 1"   src="https://app.powerbi.com/reportEmbed?reportId=be7c8453-83bd-4def-aa1a-f6f099c2dde2&autoAuth=true&ctid=ca609612-2669-4884-a6bb-941f48aa5153" frameborder="0" allowFullScreen="true"></iframe>
+      </div>
+      </body>
+
+
+           <!-- <div class="power-bi-container">
+            <iframe title="DachbordPowerBIV0 1" width="2680" height="1180"  src="https://app.powerbi.com/reportEmbed?reportId=be7c8453-83bd-4def-aa1a-f6f099c2dde2&autoAuth=true&ctid=ca609612-2669-4884-a6bb-941f48aa5153" frameborder="0" allowFullScreen="true"></iframe>
+        </div> -->

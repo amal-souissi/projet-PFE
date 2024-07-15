@@ -1,0 +1,93 @@
+<mat-toolbar>
+  <img src="/assets/img/oddo.ico" />
+  <span class="example-spacer" style="font-size:25px;color:white;">{{ 'toolbar.title' | translate }}</span>
+  <label routerLink="/dashbord" class="label" style="font-size:20px;color:white;font-family: Helvetica, Arial, sans-serif;" > {{ 'button.dashbord' | translate }}</label>
+
+  <label routerLink="/collaborateur-list" class="label" style="font-size:20px;color:white;font-family: Helvetica, Arial, sans-serif;" > {{ 'button.employee' | translate }}</label>
+  <label mat-button [matMenuTriggerFor]="afterMenu"  class="label" style="font-size:20px;color:white;font-family: Helvetica, Arial, sans-serif;" >{{ 'button.internal_training' | translate }}</label>
+  <mat-menu #afterMenu="matMenu" xPosition="after">
+  <button mat-menu-item routerLink="/formation-list" style="font-family: Helvetica, Arial, sans-serif;" >{{ 'button.create_training' | translate }}</button>
+  <button mat-menu-item routerLink="/sessionformation-list">{{ 'button.create_training_session' | translate }}</button>
+  </mat-menu>
+  <button mat-icon-button [matMenuTriggerFor]="languageMenu" aria-label="Language">
+    <mat-icon>language</mat-icon>  </button>
+  <mat-menu #languageMenu="matMenu" xPosition="before">
+  <button mat-menu-item (click)="switchLanguage('fr')">{{ 'toolbar.fr' | translate }}</button>
+  <button mat-menu-item (click)="switchLanguage('en')">{{ 'toolbar.en' | translate }}</button>
+  </mat-menu>
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+  <button mat-menu-item>
+  <mat-icon (click)="logout()"  class="logout">settings_power</mat-icon>
+  <span  class="logout">{{ 'toolbar.logout' | translate }}</span>
+  </button>
+  </mat-menu>
+  </mat-toolbar>
+  <mat-card>
+    <mat-card-header>
+    <div class="form-outline mt-3">
+    <mat-card-actions>
+    <div>
+    <button mat-raised-button color="warn" routerLink="/formation-form">
+    <mat-icon>assignment_ind</mat-icon>
+               {{ 'training.add_training' | translate }}
+    </button>
+    </div>
+    </mat-card-actions>
+    <input type="search" [(ngModel)]="searchText" id="form1" class="form-control" placeholder="{{ 'training.search' | translate }}" aria-label="search">
+    </div>
+    </mat-card-header>
+    <div class="row tbl-fixed" *ngIf="FormationList && FormationList.length>0">
+    <div>
+    <div class="flex justify-end p-8">
+    <mat-card-content>
+    <table matSort mat-table [dataSource]="FormationList | filter:searchText" class="mat-elevation-z8">
+    <ng-container matColumnDef="fom_nom">
+    <th mat-header-cell *matHeaderCellDef>{{ 'training.training_name' | translate }}</th>
+    <td mat-cell *matCellDef="let element"> {{element.fom_nom}} </td>
+    </ng-container>
+    <ng-container matColumnDef="from_descrip">
+    <th mat-sort-header mat-header-cell *matHeaderCellDef>{{ 'training.training_description' | translate }}</th>
+    <td mat-cell *matCellDef="let element"> {{element.from_descrip}} </td>
+    </ng-container>
+    <ng-container matColumnDef="from_duree">
+    <th mat-header-cell *matHeaderCellDef>{{ 'training.training_duration' | translate }}</th>
+    <td mat-cell *matCellDef="let element"> {{element.from_duree}} </td>
+    </ng-container>
+    <ng-container matColumnDef="from_axe">
+    <th mat-header-cell *matHeaderCellDef>{{ 'training.training_axis' | translate }}</th>
+    <td mat-cell *matCellDef="let element"> {{element.from_axe}} </td>
+    </ng-container>
+    <ng-container matColumnDef="from_theme">
+    <th mat-header-cell *matHeaderCellDef>{{ 'training.training_theme' | translate }}</th>
+    <td mat-cell *matCellDef="let element"> {{element.from_theme}} </td>
+    </ng-container>
+    <ng-container matColumnDef="from_certif">
+    <th mat-header-cell *matHeaderCellDef>{{ 'training.certified_training' | translate }}</th>
+    <td mat-cell *matCellDef="let element"> {{element.from_certif}} </td>
+    </ng-container>
+    <ng-container matColumnDef="from_prestataire">
+    <th mat-header-cell *matHeaderCellDef>{{ 'training.training_presenter' | translate }}</th>
+    <td mat-cell *matCellDef="let element"> {{element.from_prestataire}} </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>{{ 'training.actions' | translate }}</th>
+    <td mat-cell *matCellDef="let element">
+    <button mat-raised-button color="primary" (click)="GetuserByID(element.form_Id)">
+    <mat-icon>edit</mat-icon> 
+    </button>
+    <button mat-raised-button color="warn" (click)="Supprimer(element.form_Id)">
+    <mat-icon>delete</mat-icon>
+    </button>
+    </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    </mat-card-content>
+    </div>
+    </div>
+    </div>
+    </mat-card>

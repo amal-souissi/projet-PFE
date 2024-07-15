@@ -1,0 +1,78 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.matMenu{
+color:#C96048
+
+}
+.example-full-width {
+  width: 50%;
+}
+mat-card{
+  margin: 2%;
+  text-align: center;
+}
+.mat-mdc-form-fiels{
+  width: 90%;
+  margin: 1%;
+}
+
+/* toolbar */
+
+
+.example-spacer {
+flex: 1 1 auto;
+}
+.py-8{
+/* padding-top: 2rem; */
+padding-bottom: 2rem;
+}
+
+.w-full{
+margin: auto;
+width: auto;
+}
+.mat-toolbar{
+background-color: #2E5144 ;
+}
+
+label{
+
+margin: 10px;
+width:auto;
+color: white;
+}
+span{
+
+margin:10px;
+width:auto;
+color: whitesmoke;
+
+}
+.mat-icon{
+color: white;
+}
+
+
+
+
+mat-card{
+  margin: 2%;
+  width:auto;
+
+}
+
+
+th{
+  background-color: #2E5144  !important;
+  color: white;
+}
+.logout{
+position: initial;
+color: #C96048;
+margin: auto;
+
+}

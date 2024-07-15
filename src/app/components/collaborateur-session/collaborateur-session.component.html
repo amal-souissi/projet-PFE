@@ -1,0 +1,68 @@
+
+<!-- <h3 mat-dialog-title>{{ 'dialog.title' | translate }}</h3>
+<div mat-dialog-content>
+<h2><mat-icon>event_available</mat-icon>{{ 'dialog.sessions_available' | translate }}</h2>
+<ng-container *ngIf="noAvailableSessions; else sessionList">
+<h2><mat-icon>event_busy</mat-icon>{{ 'dialog.no_sessions_available' | translate }}</h2>
+</ng-container>
+<ng-template #sessionList>
+<mat-selection-list>
+<mat-list-option *ngFor="let session of sessions" [value]="session">
+<button mat-icon-button color="primary" (click)="addToSelected(session)">
+<mat-icon>add</mat-icon>
+</button>
+       {{ session.session_nom }}
+</mat-list-option>
+</mat-selection-list>
+</ng-template>
+<h2><mat-icon>event_busy</mat-icon>{{ 'dialog.selected_sessions' | translate }}</h2>
+<mat-selection-list>
+<mat-list-option *ngFor="let session of selectedSessions" [value]="session">
+     {{ session.session_nom }}
+<button mat-icon-button color="warn" (click)="removeFromSelected(session)">
+<mat-icon>remove</mat-icon>
+</button>
+</mat-list-option>
+</mat-selection-list>
+</div>
+<div mat-dialog-actions>
+<button mat-button color="warn" (click)="onNoClick()">{{ 'dialog.cancel' | translate }}</button>
+<button mat-button (click)="onSubmit()">{{ 'dialog.affect' | translate }}</button>
+</div> -->
+
+
+
+<h3 mat-dialog-title>{{ 'dialog.title' | translate }}</h3>
+<div mat-dialog-content>
+<h2><mat-icon>event_available</mat-icon>{{ 'dialog.sessions_available' | translate }}</h2>
+<ng-container *ngIf="noAvailableSessions; else sessionList">
+<h2><mat-icon>event_busy</mat-icon>{{ 'dialog.no_sessions_available' | translate }}</h2>
+</ng-container>
+<ng-template #sessionList>
+<mat-selection-list>
+<mat-list-item *ngFor="let session of sessions" value="session" >
+<button mat-icon-button color="primary" (click)="addToSelected(session)">
+<mat-icon>add</mat-icon>
+</button>
+<span class="detail">
+       {{ session.session_nom }} : 
+       {{ session.dateSession | date:'dd/MM/yyyy' }}     </span>
+</mat-list-item>
+</mat-selection-list>
+</ng-template>
+<h2><mat-icon>event_busy</mat-icon>{{ 'dialog.selected_sessions' | translate }}</h2>
+<mat-selection-list>
+<mat-list-item *ngFor="let session of selectedSessions" value="session">
+<button mat-icon-button color="warn" (click)="removeFromSelected(session)">
+<mat-icon>remove</mat-icon>
+</button>
+<span class="detail">
+     {{ session.session_nom }} : 
+     {{ session.dateSession | date:'dd/MM/yyyy' }}     </span>
+</mat-list-item>
+</mat-selection-list>
+</div>
+<div mat-dialog-actions>
+<button mat-button color="warn" (click)="onNoClick()">{{ 'dialog.cancel' | translate }}</button>
+<button mat-button (click)="onSubmit()">{{ 'dialog.affect' | translate }}</button>
+</div>

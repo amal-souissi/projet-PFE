@@ -1,0 +1,110 @@
+.power-bi-container {
+ 
+  height:fit-content;
+  margin: 3px;
+  overflow: hidden;
+   }
+mat-card{
+    margin: auto;
+    width:auto;
+
+}
+
+.matMenu{
+  color:#C96048
+
+}
+
+button{
+    margin: 3px;
+    width:auto;
+}
+
+th{
+    background-color: #2E5144 !important;
+    color: white;
+}
+/* toolbar */
+
+.example-spacer {
+    flex: 1 1 auto;
+
+  }
+  .py-8{
+    /* padding-top: 2rem; */
+    padding-bottom: 2rem;
+  }
+
+.w-full{
+  margin: auto;
+  width: auto;
+}
+.mat-toolbar{
+background-color: #2E5144;
+}
+/* 
+.logout{
+  margin: 10px;
+  width:auto;
+  color: white;
+
+
+} */
+label{
+/* position:unset;
+  margin: 10px; */
+  color: white;
+  margin: 60;
+
+}
+
+.label{
+  /* position:unset;
+    margin: 10px; */
+    color: white;
+    margin: 30px;
+  
+  }
+
+span{
+  
+  margin:10px;
+  width:auto;
+  color: whitesmoke;
+  
+}
+.mat-icon{
+  color: white;
+}
+
+
+
+
+  mat-card{
+      margin: 2%;
+      width:auto;
+  
+  }
+  
+
+  th{
+    
+      background-color: dimgray !important;
+      color: white;
+      
+  }
+
+
+
+
+
+
+
+
+.logout{
+  position: initial;
+  color: #C96048;
+  margin: auto;
+
+}
+

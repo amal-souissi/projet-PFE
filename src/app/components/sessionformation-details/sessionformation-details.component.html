@@ -1,0 +1,21 @@
+<mat-dialog-content class="custom-dialog custom-dialog-content">
+<h2 mat-dialog-title class="mat-typography">{{ 'sessionDetails.session_details' | translate }}</h2>
+<ul>
+<li><strong>{{ 'sessionDetails.name_of_training_session' | translate }}:</strong> {{ data.session.session_nom }}</li>
+<li><strong>{{ 'sessionDetails.date_of_training_session' | translate }}:</strong> {{ data.session.dateSession | date:'dd/MM/yyyy' }}</li>
+<li><strong>{{ 'sessionDetails.training_session_format' | translate }}:</strong> {{ data.session.formatSession }}</li>
+<li><strong>{{ 'sessionDetails.theme_of_training_session' | translate }}:</strong> {{ data.session.themeSession }}</li>
+<li><strong>{{ 'sessionDetails.organization_of_training_session' | translate }}:</strong> {{ data.session.organisme }}</li>
+<li><strong>{{ 'sessionDetails.training_noun' | translate }}:</strong> {{ data.formation.fom_nom }}</li>
+<li><strong>{{ 'sessionDetails.training_description' | translate }}:</strong> {{ data.formation.from_descrip }}</li>
+<li><strong>{{ 'sessionDetails.training_duration' | translate }}:</strong> {{ data.formation.from_duree }}</li>
+<li><strong>{{ 'sessionDetails.axis_training' | translate }}:</strong> {{ data.formation.from_axe }}</li>
+<li><strong>{{ 'sessionDetails.training_theme' | translate }}:</strong> {{ data.formation.from_theme }}</li>
+<li><strong>{{ 'sessionDetails.certified_training' | translate }}:</strong> {{ data.formation.from_certif }}</li>
+<li><strong>{{ 'sessionDetails.training_presenter' | translate }}:</strong> {{ data.formation.from_prestataire }}</li>
+</ul>
+</mat-dialog-content>
+<mat-dialog-actions>
+<!-- <button mat-button (click)="printDetails()">{{ 'sessionDetails.print' | translate }}</button> -->
+<button mat-button (click)="closeDialog()">{{ 'sessionDetails.close' | translate }}</button>
+</mat-dialog-actions>

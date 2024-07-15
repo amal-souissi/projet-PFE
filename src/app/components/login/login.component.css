@@ -1,0 +1,119 @@
+
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+
+}
+
+.example-full-width {
+  width: 40%;
+  min-width: 150px;
+  border-radius: 15px;
+  margin-top: 1px;
+
+}
+.example-full-pass{
+
+  min-width: 228px;
+ 
+}
+mat-card{
+  margin-top: auto;
+  margin-left: 30%;
+  margin-right: 30%;
+  min-height: 380px;
+  text-align: center;
+  font-size: medium;
+  box-shadow: 20px 20px 80px #C96048;
+  border-radius: 12px;    
+}
+.mat-mdc-form-fiels{
+  width: 90%;
+  margin: 100%;
+
+}
+button{
+  min-width: 150px;
+  max-width: 150px;
+  width: 50%;
+  border-radius: 15px;
+  margin-top: 1px;
+
+}
+.id{
+
+  color: rgb(17, 0, 255);
+}
+.idd{
+  color: rgb(5, 145, 0);
+}
+
+.text-center{
+  margin: 1%;
+  text-align: center;
+  
+}
+
+
+
+.label{
+  margin: 2%;
+  border-radius: 5%;
+  padding: 5%;
+  display: auto;
+  align-items: center;
+  border: 1px solid #ddd;
+  color:blue;
+}
+img{
+  margin: 1%;
+
+
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+}
+.bordert{
+  border-top: 1px solid #aaa;
+  position: relative;
+  margin: 2%;
+
+
+}
+
+.bordert::after{
+  
+  content: "or connect with";
+  position:absolute;
+  top: -13px;
+  left: 44%;
+  background-color: #fff;
+  padding: 0 8px;
+}
+.outer{
+  margin: 2%;
+
+}
+
+
+.required{
+/* margin-top: -2%; */
+width: 83%;
+color: #C96048;
+}
+
+.pwd{
+margin: 2%;
+}
+.user{
+margin: 2%;
+}
+
+
+mat-icon{
+  object-position: 100px 50px;
+}

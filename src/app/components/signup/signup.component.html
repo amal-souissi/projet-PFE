@@ -1,0 +1,104 @@
+<div class="outer">
+    <mat-card>
+       <mat-card-content>
+        <button mat-icon-button [matMenuTriggerFor]="languageMenu" aria-label="Language">
+          <mat-icon>g_translate</mat-icon>
+          </button>
+          <mat-menu #languageMenu="matMenu" xPosition="before">
+          <button mat-menu-item (click)="switchLanguage('fr')">{{ 'toolbar.fr' | translate }}</button>
+          <button mat-menu-item (click)="switchLanguage('en')">{{ 'toolbar.en' | translate }}</button>
+          </mat-menu>
+          <h4 style="font-size:30px;color:black ; font-family: Helvetica, Arial, sans-serif;">
+            <b><i>{{ 'signUpForm.title' | translate }}</i></b>
+            </h4>
+            
+   
+           <form [formGroup]="signUpForm" >
+            <div class="user">
+               <div class="w-full flex flex-warp"  >
+                <mat-form-field appearance="outline" class="example-full-width" aria-label="Font Style" >
+                  <mat-label>{{ 'signUpForm.first_name_label' | translate }}</mat-label>
+                  <input matInput type="text" formControlName="Firstname">
+                  <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field>
+              <div class="required">
+                <small *ngIf="signUpForm.controls['Firstname'].dirty && signUpForm.hasError('required','Firstname')">
+                  {{ 'signUpForm.first_name_required_error' | translate }}</small>
+            </div>
+               </div>
+               </div>
+               <div class="user">
+               <div class="w-full flex flex-warp"  >
+                    <mat-form-field appearance="outline"  class="example-full-width" aria-label="Font Style">
+                    <mat-label>{{ 'signUpForm.last_name_label' | translate }}</mat-label>
+                    <input matInput type="text"  formControlName="LastName">
+                    <mat-icon matSuffix>person</mat-icon>
+                    </mat-form-field>
+                    <div class="required">
+                      
+                      <small
+                          *ngIf="signUpForm.controls['LastName'].dirty && signUpForm.hasError('required','LastName')">  {{ 'signUpForm.last_name_required_error' | translate }}</small>
+                  </div>
+               </div>
+               </div>
+               <div class="user">
+               <div class="w-full flex flex-warp"  >
+                    <mat-form-field appearance="outline"  class="example-full-width" aria-label="Font Style">
+                    <mat-label>{{ 'signUpForm.email_label' | translate }}</mat-label>
+                    <input matInput type="text" placeholder="Email" formControlName="Email">
+                    <mat-icon  matSuffix> email</mat-icon>
+                    </mat-form-field>
+                    <div class="required">
+                      <small
+                          *ngIf="signUpForm.controls['Email'].dirty && signUpForm.hasError('required','Email')">{{ 'signUpForm.email_required_error' | translate }}</small>
+                  </div>
+                </div> 
+            </div>
+            <div class="user">
+                <div class="w-full flex flex-warp"  >
+                    <mat-form-field appearance="outline"  class="example-full-width" aria-label="Font Style">
+                    <mat-label>{{ 'signUpForm.username_label' | translate }}</mat-label>
+                    <input matInput type="text" placeholder="UserName" formControlName="UserName">
+                    <mat-icon matSuffix>person</mat-icon>
+                    </mat-form-field>
+                    <div class="required">
+                      <small
+                          *ngIf="signUpForm.controls['UserName'].dirty && signUpForm.hasError('required','UserName')">{{ 'signUpForm.username_required_error' | translate }}</small>
+                  </div>
+              </div>
+            </div>
+            <div class="user">
+
+              <div class="w-full flex flex-warp"   >
+              <mat-form-field appearance="outline"  class="example-full-width" aria-label="Font Style">
+                <mat-label  >{{ 'signUpForm.password_label' | translate }}</mat-label>
+                <input  class="example-full-pass" matInput [type]="hide ? 'password' : 'text'" formControlName="password" >
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon matSuffix class="example-full-pass">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+              <div class="required">
+                <small  class="example-full-pass"
+                    *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')">{{ 'signUpForm.password_required_error' | translate }}</small>
+            </div>
+              </div>
+              </div>
+    
+
+
+   
+             
+              <mat-card-footer>
+                <button mat-raised-button color="warn" type="submit" (click)="onSignup()">
+                                       {{ 'signUpForm.sign_up_button' | translate }}
+                </button>
+                <div class="text-center pt-4 text-muted">
+                                       {{ 'signUpForm.have_account_message' | translate }}
+                <a id="forget" routerLink="/login">{{ 'signUpForm.log_in_link' | translate }}</a>
+                </div>
+                </mat-card-footer>
+       </form>
+       </mat-card-content>
+   
+    </mat-card>
+   </div>

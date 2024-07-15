@@ -1,0 +1,8 @@
+.custom-dialog {
+    font-size: 20px; /* Adjust font size as needed */
+   }
+   .custom-dialog-content {
+    width: 600px;  /* Adjust width as needed */
+    height: 600px; /* Adjust height as needed */
+    padding: 20px; /* Optional: Add padding for better spacing */
+   }

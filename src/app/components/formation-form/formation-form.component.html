@@ -1,0 +1,107 @@
+<mat-toolbar>
+    <img src="/assets/img/oddo.ico" />
+    <span class="example-spacer" style="font-size:25px;color:white;">{{ 'toolbar.title' | translate }}</span>
+    <label routerLink="/dashbord" class="label" style="font-size:20px;color:white;font-family: Helvetica, Arial, sans-serif;" > {{ 'button.dashbord' | translate }}</label>
+
+    <label routerLink="/collaborateur-list" class="label" style="font-size:20px;color:white;font-family: Helvetica, Arial, sans-serif;" > {{ 'button.employee' | translate }}</label>
+    <label mat-button [matMenuTriggerFor]="afterMenu"  class="label" style="font-size:20px;color:white;font-family: Helvetica, Arial, sans-serif;" >{{ 'button.internal_training' | translate }}</label>
+    <mat-menu #afterMenu="matMenu" xPosition="after">
+    <button mat-menu-item routerLink="/formation-list" style="font-family: Helvetica, Arial, sans-serif;" >{{ 'button.create_training' | translate }}</button>
+    <button mat-menu-item routerLink="/sessionformation-list">{{ 'button.create_training_session' | translate }}</button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="languageMenu" aria-label="Language">
+        <mat-icon>language</mat-icon>    </button>
+    <mat-menu #languageMenu="matMenu" xPosition="before">
+    <button mat-menu-item (click)="switchLanguage('fr')">{{ 'toolbar.fr' | translate }}</button>
+    <button mat-menu-item (click)="switchLanguage('en')">{{ 'toolbar.en' | translate }}</button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+    <mat-icon (click)="logout()"  class="logout">settings_power</mat-icon>
+    <span  class="logout">{{ 'toolbar.logout' | translate }}</span>
+    </button>
+    </mat-menu>
+    </mat-toolbar>
+
+
+    <mat-card>
+        <div>
+        <div>
+        <button mat-raised-button color="warn" routerLink="/formation-list">
+        <mat-icon>arrow_back_ios</mat-icon>
+               {{ 'trainingForm.return_main_list' | translate }}
+        </button>
+        </div>
+        <div>
+        <mat-card-content>
+        <h4 style="font-size:30px;color:red ; font-family: Helvetica, Arial, sans-serif;">
+        <b>
+                   {{isEdit ? ('trainingForm.change_form' | translate) : ('trainingForm.create_form' | translate) }} </b>
+       
+        </h4>
+        <form [formGroup]="FormationForm" (ngSubmit)="save()">
+        <div class="w-full flex flex-warp">
+        <mat-form-field class="example-full-width">
+        <mat-label>{{ 'trainingForm.training_name' | translate }}</mat-label>
+        <input type="text" matInput placeholder="{{ 'trainingForm.training_name' | translate }}" formControlName="fom_nom" />
+        </mat-form-field>
+        </div>
+        <div class="w-full flex flex-warp">
+        <mat-form-field class="example-full-width">
+        <mat-label>{{ 'trainingForm.training_description' | translate }}</mat-label>
+        <input type="text" matInput placeholder="{{ 'trainingForm.training_description' | translate }}" formControlName="from_descrip" />
+        </mat-form-field>
+        </div>
+        <div class="w-full flex flex-warp">
+        <mat-form-field class="example-full-width">
+        <mat-label>{{ 'trainingForm.training_duration' | translate }}</mat-label>
+        <mat-select formControlName="from_duree">
+        <mat-option [value]="item" *ngFor="let item of DurationList">{{ item }}</mat-option>
+        </mat-select>
+        </mat-form-field>
+        </div>
+        <div class="w-full flex flex-warp">
+        <mat-form-field class="example-full-width">
+        <mat-label>{{ 'trainingForm.axis_training' | translate }}</mat-label>
+        <mat-select formControlName="from_axe">
+        <mat-option [value]="item" *ngFor="let item of axisList">{{ item }}</mat-option>
+        </mat-select>
+        </mat-form-field>
+        </div>
+        <div class="w-full flex flex-warp">
+        <mat-form-field class="example-full-width">
+        <mat-label>{{ 'trainingForm.training_theme' | translate }}</mat-label>
+        <mat-select formControlName="from_theme">
+        <mat-option [value]="item" *ngFor="let item of themeList">{{ item }}</mat-option>
+        </mat-select>
+        </mat-form-field>
+        </div>
+        <div class="w-full flex flex-warp">
+        <mat-form-field class="example-full-width">
+        <mat-label>{{ 'trainingForm.certified_training' | translate }}</mat-label>
+        <mat-select formControlName="from_certif">
+        <mat-option [value]="item" *ngFor="let item of CertificatList">{{ item }}</mat-option>
+        </mat-select>
+        </mat-form-field>
+        </div>
+        <div class="w-full flex flex-warp">
+        <mat-form-field class="example-full-width">
+        <mat-label>{{ 'trainingForm.training_presenter' | translate }}</mat-label>
+        <input type="text" matInput placeholder="{{ 'trainingForm.training_presenter' | translate }}" formControlName="from_prestataire" />
+        </mat-form-field>
+        </div>
+        <mat-card-footer>
+        <div class="flex justify-center">
+                       <button mat-raised-button color="warn" [disabled]="!FormationForm.valid" type="submit">
+                        {{isEdit ? ('trainingForm.modify' | translate) : ('trainingForm.add' | translate) }}
+                     </button>
+        </div>
+        </mat-card-footer>
+        </form>
+        </mat-card-content>
+        </div>
+        </div>
+        </mat-card>
